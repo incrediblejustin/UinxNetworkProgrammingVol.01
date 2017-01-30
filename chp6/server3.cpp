@@ -106,7 +106,7 @@ int main()
                 continue;
             }//continue if no client wirte to server, block on select & wait for it
         }//end of fd_isset(listenfd)
-        for(int i = 0; i <= maxi; ++i)
+        for(int i = 1; i <= maxi; ++i)
         {
             if((sockfd = client[i].fd) < 0)
             {

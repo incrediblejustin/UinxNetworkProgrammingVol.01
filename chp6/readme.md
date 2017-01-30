@@ -42,3 +42,17 @@
         4. 最重要的已不是利用 --nready 检查是否大于零，如果小于零，提前从for循环中退出
 
 
+####4. server3.cpp
+1. 使用`poll`来代替`select`，`poll`最初只局限于流设备，现在可以工作在热呢描述符上，提供与`select`类似的功能
+
+2. `poll`有一个重要的参数就是`struct pollfd`指针，该指针指向一个`struct pollfd`结构体
+
+```cpp
+struct pollfd
+{
+    int fd;   //需要内核来检查的描述符
+    short events;    //对描述符上感兴趣的事件
+    short revents;    //函数返回的描述符状态
+}
+```
+
